@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styledComponents from 'styled-components';
-
+import Collapse from '@mui/material/Collapse';
 
 const Container = styledComponents.div`
     display: flex;
@@ -47,7 +47,8 @@ function TechCard({tech, i}) {
                 <TechLogo src={tech.logoSrc}/>
                 <TechInformation>
                     <TechName>{tech.name}</TechName>
-                    {seeMoreClicked&&<AdditionalInformation>
+                    <Collapse in={seeMoreClicked}>
+                    <AdditionalInformation>
                         {tech.frameworks && <LibrariesAndFrameWorks>
                             {tech.frameworks.map((subTech, i) => {
                                 return (<SubTech key={i}>{subTech}</SubTech>)
@@ -55,7 +56,9 @@ function TechCard({tech, i}) {
                         </LibrariesAndFrameWorks>}
                         <Thoughts>{tech.personalThoughts}</Thoughts>
                         <Projects></Projects>
-                    </AdditionalInformation>}
+                    </AdditionalInformation>
+                    </Collapse>
+                    
                     <SeeMore onClick={() => setSeeMoreClicked((prev) => !prev)}>{seeMoreClicked?'See Less':'See More'}</SeeMore>
                 </TechInformation>
             </Container>
