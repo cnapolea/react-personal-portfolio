@@ -2,13 +2,15 @@ import {React, useState} from 'react'
 import styledComponents from 'styled-components';
 import Collapse from '@mui/material/Collapse';
 
+
+
 const Slide = styledComponents.div`
     position: relative;
+    padding-top: 10px;
 `;
 
 const Banner = styledComponents.div`
     position: relative;
-    margin-top: 10px;
 `;
 
 const ProjectLink = styledComponents.a`
@@ -16,7 +18,11 @@ const ProjectLink = styledComponents.a`
     color: #000;
     font-weight: 510;
     font-size: 17px;
-    margin-left: 10px;
+    display: block;
+    background: #d3a0a01c;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: 10px 0 10px 10px;
 `;
 
 const ProjectImg = styledComponents.img`
@@ -37,14 +43,16 @@ const SeeMore = styledComponents.span`
 
 const DescriptionContainer = styledComponents.div``;
 
-const Description = styledComponents.p``;
-
-// const Curtain = styledComponents.div`
-//     width: 100%;
-//     height: 15em;
-//     background: #80808051;
-//     position: absolute;
-// `;
+const Description = styledComponents.p`
+    padding: 15px;
+    letter-spacing: 1px;
+    margin: 0;
+    background: #d3a0a01c;
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+`;
 
 
 function ProjectCarousel({key, link, name, img, description}) {
@@ -54,7 +62,7 @@ function ProjectCarousel({key, link, name, img, description}) {
     return (
         
             <Slide key={key}>
-                <ProjectLink href={link}>{name}</ProjectLink>
+                <ProjectLink href={link} target="_blank">{name}</ProjectLink>
                 <Banner>
                     {/* <Curtain></Curtain> */}
                     <SeeMore onClick={()=>{setSeeMoreClicked((prev)=> !prev)}}>{seeMoreClicked?'See Less':'See More'}</SeeMore>
@@ -63,9 +71,9 @@ function ProjectCarousel({key, link, name, img, description}) {
                 <Collapse in={seeMoreClicked}>
                     <DescriptionContainer>
                         <Description>
-                            {description}
+                            {description} <br/><br/>
+                            <a href={link} target="_blank">Visit Site</a>
                         </Description>
-                        
                     </DescriptionContainer>
                 </Collapse>
                 

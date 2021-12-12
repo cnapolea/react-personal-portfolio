@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import styledComponents from 'styled-components';
 import Collapse from '@mui/material/Collapse';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/system';
 
-const Container = styledComponents.div`
-    display: flex;
-    margin: 30px 0;
-    align-items: center;
-`;
+const Container = styled(Paper)(() => ({
+    
+    padding: '20px 0 20px 10px',
+    display: 'flex',
+    margin: '30px 0',
+    'align-items': 'center',
+  }));
+
+// const Container = styledComponents.div`
+// `;
 const TechLogo = styledComponents.img`
     width: 60px;
     height: 60px;
@@ -14,7 +21,7 @@ const TechLogo = styledComponents.img`
 `;
 const TechInformation = styledComponents.div``;
 const TechName = styledComponents.h3`
-    margin: 0;
+    margin: 0 0 10px;
 `;
 const LibrariesAndFrameWorks = styledComponents.ul`
     display: flex;
@@ -28,7 +35,10 @@ const LibrariesAndFrameWorks = styledComponents.ul`
     }
 `;
 const SubTech = styledComponents.li`
-    
+    background: #80808030;
+    padding: 5px;
+    border-radius: 10px;
+
 `;
 const SeeMore = styledComponents.a`
     cursor: pointer;
