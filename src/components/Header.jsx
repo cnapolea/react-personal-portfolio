@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 import styledComponents from 'styled-components';
-
-
 
 const Container = styledComponents.div`
     align-items: center;
@@ -15,7 +13,7 @@ const Container = styledComponents.div`
 `;
 
 const Image = styledComponents.img`
-    position: ${props => props.hasPosition?'absolute':'relative'};
+    position: ${(props) => (props.hasPosition ? 'absolute' : 'relative')};
     border-radius: 50%;
 
 `;
@@ -38,21 +36,27 @@ const SecondaryHeaderText = styledComponents.p`
 `;
 
 function Header() {
-    return (
-        <Container>
-            <Image src='https://res.cloudinary.com/nerdroots/image/upload/v1638403086/bannerset2_iqr1rp.svg' hasPosition={true} width={1120} style={{top:'4em'}}/>
-            <Image src='https://res.cloudinary.com/nerdroots/image/upload/v1638396828/profile-picture-transparent_pdrow5.png' width={240}/>
+  return (
+    <Container>
+      <Image
+        src="https://res.cloudinary.com/nerdroots/image/upload/v1638403086/bannerset2_iqr1rp.svg"
+        hasPosition={true}
+        width={1120}
+        style={{ top: '4em' }}
+      />
+      <Image
+        src="https://res.cloudinary.com/nerdroots/image/upload/v1639523936/IMG_2862_pzaick.png"
+        width={350}
+      />
 
-            <TextContainer>
-                <MainHeaderText>
-                    Hi There,
-                </MainHeaderText>
-                <SecondaryHeaderText>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, est.
-                </SecondaryHeaderText>
-            </TextContainer>
-        </Container>
-    )
+      <TextContainer>
+        <MainHeaderText>Hi There,</MainHeaderText>
+        <SecondaryHeaderText>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, est.
+        </SecondaryHeaderText>
+      </TextContainer>
+    </Container>
+  );
 }
 
-export default Header
+export default Header;
