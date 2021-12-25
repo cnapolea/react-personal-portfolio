@@ -72,10 +72,10 @@ function Header() {
   return (
     <Container>
       <TextContainer>
-        <MainHeaderText>Welcome to my personal website,</MainHeaderText>
+        <MainHeaderText>Welcome,</MainHeaderText>
         <SecondaryHeaderText>
-          You will be able to see some of my work and request for some work or
-          hire me, if you feel like I am worthy. Enjoy!
+          I am Cristiano. You will be able to see some of my work and request
+          for some work or hire me. Enjoy!
         </SecondaryHeaderText>
       </TextContainer>
       <Image
