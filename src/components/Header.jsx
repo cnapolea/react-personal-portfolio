@@ -6,55 +6,88 @@ const Container = styledComponents.div`
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat',sans-serif;
-    justify-content: center;
+    justify-content: flex-end;
     text-align: center;
     margin-top: 3em;
-    
+    height: 100vh;
+    border-bottom: 1px solid #000;
 `;
 
 const Image = styledComponents.img`
     position: ${(props) => (props.hasPosition ? 'absolute' : 'relative')};
-    border-radius: 50%;
+    
+    &.backImage {
+      width: 300px;
+    };
+    
+    &.mainImage {
+      width:350px;
+    }
+    @media (min-width: 360px ){
+      &.backImage {
+        width: 400px;
+      };
+
+      &.mainImage {
+        width:450px;
+      }
+    }
+    
+
 
 `;
 const TextContainer = styledComponents.div`
-    margin-top: 1.5em;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;    
+    text-align: left;    
+    position: absolute;
+    top: 5em;
+    
+    @media (min-width: 360px ){
+      & {
+        top: 10em;
+      };
+    }
+    @media (min-width: 414px ){
+      & {
+        top: 13em;
+      };
+    }
 `;
 const MainHeaderText = styledComponents.h1`
-    margin:0;
+    margin:0 10px;
+    font-size: 30px;
 `;
 const SecondaryHeaderText = styledComponents.p`
-    margin: 1em 0;
+    margin: 2em 10px;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 2px;
-    padding: 0px 20px;
+    padding: 0px ;
 `;
 
 function Header() {
   return (
     <Container>
+      <TextContainer>
+        <MainHeaderText>Welcome to my personal website,</MainHeaderText>
+        <SecondaryHeaderText>
+          You will be able to see some of my work and request for some work or
+          hire me, if you feel like I am worthy. Enjoy!
+        </SecondaryHeaderText>
+      </TextContainer>
       <Image
-        src="https://res.cloudinary.com/nerdroots/image/upload/v1638403086/bannerset2_iqr1rp.svg"
+        src="https://res.cloudinary.com/nerdroots/image/upload/v1640438384/bannerset2_iqr1rp_2_f13y5s.png"
         hasPosition={true}
-        width={1120}
-        style={{ top: '4em' }}
+        className="backImage"
       />
       <Image
         src="https://res.cloudinary.com/nerdroots/image/upload/v1639523936/IMG_2862_pzaick.png"
-        width={350}
+        hasPosition={true}
+        className="mainImage"
       />
-
-      <TextContainer>
-        <MainHeaderText>Hi There,</MainHeaderText>
-        <SecondaryHeaderText>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, est.
-        </SecondaryHeaderText>
-      </TextContainer>
     </Container>
   );
 }

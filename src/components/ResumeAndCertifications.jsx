@@ -6,7 +6,7 @@ import { resumeAndCertificates } from '../utils/resumeAndCertificates';
 
 const Container = styledComponents.div``;
 const Subtitle = styledComponents.h2`
-    margin: 2em 0;
+    margin: 4em 0 2em;
 `;
 
 function ResumeAndCertifications() {

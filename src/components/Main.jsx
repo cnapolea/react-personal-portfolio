@@ -7,10 +7,9 @@ import technologies from '../utils/technologies';
 import ResumeAndCertifications from './ResumeAndCertifications';
 
 const Container = styledComponents.div`
-    border-top: 1px black solid;
     z-index: 1;
-    padding: 0 10px;
-    margin-bottom: 3em;
+    margin: 1.5em 10px;
+
 `;
 
 const Left = styledComponents.div`
@@ -21,7 +20,9 @@ const Top = styledComponents.div``;
 const Down = styledComponents.div`
     margin: 4em 0 0;
 `;
-const Subtitle = styledComponents.h2``;
+const Subtitle = styledComponents.h2`
+  margin: 2em 0;
+`;
 
 function Main() {
   return (

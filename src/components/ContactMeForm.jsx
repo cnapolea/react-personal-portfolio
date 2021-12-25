@@ -19,20 +19,53 @@ const Form = styledComponents.form`
 
 const CustomizedTextField = styled(TextField)(() => ({
   marginBottom: '1em',
-  borderColor: 'purple',
-  width: '100%'
+  width: '100%',
+
+  '&. MuiOutlinedInput-input': {
+    color: '#fff'
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: '#fff',
+      borderWidth: 3,
+      padding: '4px !important'
+    },
+    '&:hover fieldset': {
+      borderColor: 'purple'
+    },
+    '&.Mui-focused fieldset': {
+      color: '#fff',
+      borderColor: '#fff'
+    }
+  },
+  '& label.Mui-focused': {
+    color: '#fff',
+    width: 500
+  },
+  '& .MuiInput-underline:after': {
+    borderColor: '#fff'
+  },
+  '& label': {
+    color: '#fff'
+  }
 }));
 
 const CustomizedPaper = styled(Paper)(() => ({
-  padding: '1em'
+  padding: '1.5em 1.3em',
+  margin: '0 10px 1.5em',
+  backgroundColor: 'rgb(71 12 147)'
 }));
 
 const CustomizedButton = styled(Button)(() => ({
-  width: '50%'
+  width: '65%',
+  padding: 15,
+  margin: '1.5em 0'
 }));
 
 const Subtitle = styledComponents.h2`
-    margin: 0 0 1em; padding: 0;
+    margin: 1em 0 1.5em; 
+    padding: 0;
+    color: #fff;
 `;
 
 function ContactMeForm() {
@@ -52,25 +85,34 @@ function ContactMeForm() {
   const handleFormSubmission = async (e) => {
     e.preventDefault();
 
-    try {
-      emailjs.init(env.EMAILJS_USER_ID);
-      const response = await emailjs.send(
-        'service_8fwipd8',
-        'template_0wtj7zf',
-        formInputs
-      );
-      response.status === 200 &&
-        enqueueSnackbar('Email Sent.', { variant: 'success' });
-    } catch (err) {
-      enqueueSnackbar(err.message, {
-        variant: 'error'
-      });
+    if (
+      !formInputs.senderName ||
+      !formInputs.senderEmail ||
+      !formInputs.message
+    ) {
+      enqueueSnackbar('Fill all fields.', { variant: 'warning' });
+    } else {
+      try {
+        emailjs.init(env.EMAILJS_USER_ID);
+        const response = await emailjs.send(
+          'service_8fwipd8',
+          'template_0wtj7zf',
+          formInputs
+        );
+        response.status === 200 &&
+          enqueueSnackbar('Email Sent.', { variant: 'success' });
+        setFormInputs({});
+      } catch (err) {
+        enqueueSnackbar(err.message, {
+          variant: 'error'
+        });
+      }
     }
   };
 
   return (
     <CustomizedPaper elevation={6}>
-      <Subtitle>Contact Me</Subtitle>
+      <Subtitle>Let's Start Working Together</Subtitle>
       <Form>
         <CustomizedTextField
           id="name-input"
@@ -79,6 +121,7 @@ function ContactMeForm() {
           variant="outlined"
           name="senderName"
           onChange={handleFormInputs}
+          autocomplete="off"
         />
         <CustomizedTextField
           id="email-input"
@@ -87,6 +130,7 @@ function ContactMeForm() {
           variant="outlined"
           name="senderEmail"
           onChange={handleFormInputs}
+          autocomplete="off"
         />
         <CustomizedTextField
           id="message-input"
@@ -102,6 +146,7 @@ function ContactMeForm() {
           variant="contained"
           endIcon={<SendIcon />}
           onClick={handleFormSubmission}
+          color="secondary"
         >
           Send
         </CustomizedButton>

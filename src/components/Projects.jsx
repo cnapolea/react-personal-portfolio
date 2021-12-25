@@ -9,10 +9,14 @@ const Container = styledComponents.div`
 
     .slick-slider {
         margin-bottom: 1em;
+    };
+    
+    .slick-dots {
+      bottom: -40px;
     }
 `;
 const Subtitle = styledComponents.h2`
-
+  margin: 2em 0;
 `;
 
 function Projects() {

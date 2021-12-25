@@ -13,12 +13,12 @@ const CustomCard = styled(Card)(() => ({
 function ResumeandCertificateCards({ imgUrl, title, description, link }) {
   return (
     <CustomCard>
-      <CardMedia
+      {/* <CardMedia
         component="img"
         height="140"
         image={imgUrl}
         alt={`Cristiano's ${title}`}
-      />
+      /> */}
       <CardContent>
         <h3>{title}</h3>
         <p>{description}</p>
