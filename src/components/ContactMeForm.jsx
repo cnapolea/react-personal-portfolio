@@ -95,8 +95,8 @@ function ContactMeForm() {
       try {
         emailjs.init(env.EMAILJS_USER_ID);
         const response = await emailjs.send(
-          'service_8fwipd8',
-          'template_0wtj7zf',
+          env.EMAILJS_SERVICE_ID,
+          env.EMAILJS_TEMPLATE_ID,
           formInputs
         );
         response.status === 200 &&
