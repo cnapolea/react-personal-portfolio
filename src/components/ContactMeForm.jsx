@@ -21,7 +21,7 @@ const CustomizedTextField = styled(TextField)(() => ({
   marginBottom: '1em',
   width: '100%',
 
-  '&. MuiOutlinedInput-input': {
+  '& .MuiOutlinedInput-input': {
     color: '#fff'
   },
   '& .MuiOutlinedInput-root': {
@@ -75,16 +75,14 @@ function ContactMeForm() {
   const handleFormInputs = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-
     setFormInputs((prev) => ({
-      [name]: value,
-      ...prev
+      ...prev,
+      [name]: value
     }));
   };
 
   const handleFormSubmission = async (e) => {
     e.preventDefault();
-
     if (
       !formInputs.senderName ||
       !formInputs.senderEmail ||
@@ -101,7 +99,6 @@ function ContactMeForm() {
         );
         response.status === 200 &&
           enqueueSnackbar('Email Sent.', { variant: 'success' });
-        setFormInputs({});
       } catch (err) {
         enqueueSnackbar(err.message, {
           variant: 'error'
