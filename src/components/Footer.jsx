@@ -37,15 +37,19 @@ function Footer() {
       <SocialsContainer>
         <Social>
           <SocialImg src="https://res.cloudinary.com/nerdroots/image/upload/v1640451597/instagram_3_pdbm6i.png" />
-          <SocialLink href="/">Instagram</SocialLink>
+          <SocialLink href="https://www.instagram.com/cristianojorge9/">
+            Instagram
+          </SocialLink>
         </Social>
         <Social>
           <SocialImg src="https://res.cloudinary.com/nerdroots/image/upload/v1640451700/github_1_lph7ch.png" />
-          <SocialLink href="/">Github</SocialLink>
+          <SocialLink href="https://github.com/cnapolea">Github</SocialLink>
         </Social>
         <Social>
           <SocialImg src="https://res.cloudinary.com/nerdroots/image/upload/v1640451780/linkedin_wfzgvb.png" />
-          <SocialLink href="/">Github</SocialLink>
+          <SocialLink href="https://www.linkedin.com/in/cristianonapoleao/">
+            LinkedIn
+          </SocialLink>
         </Social>
       </SocialsContainer>
       <CopyRight>&copy; 2022 NerdRoots, LDA. All rights reserved. </CopyRight>
