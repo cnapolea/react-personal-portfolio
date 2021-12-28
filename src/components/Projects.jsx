@@ -30,7 +30,7 @@ function Projects() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: window.innerWidth > 700 ? 3 : 1,
+    slidesToShow: window.innerWidth > 800 ? 3 : 1,
     slidesToScroll: 1,
     arrows: window.innerWidth > 700
   };
