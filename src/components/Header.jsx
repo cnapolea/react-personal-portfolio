@@ -46,16 +46,6 @@ const Image = styledComponents.img`
 
     @media (min-width: 740px ){
       &.backImage {
-        width: 40em;
-      };
-
-      &.mainImage {
-        width:45em;
-      }
-    }
-
-    @media (min-width: 800px ){
-      &.backImage {
         width: 35em;
       };
 
@@ -63,6 +53,8 @@ const Image = styledComponents.img`
         width:40em;
       }
     }
+
+    
     
 
 
@@ -89,7 +81,7 @@ const TextContainer = styledComponents.div`
     }
 
 
-    @media (min-width: 800px ){
+    @media (min-width: 740px ){
       & {
         top: 15em;
       };

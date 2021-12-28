@@ -35,7 +35,6 @@ function Projects() {
     arrows: window.innerWidth > 700
   };
 
-  console.log(window.innerWidth);
   return (
     <Container>
       <Subtitle>Projects</Subtitle>
