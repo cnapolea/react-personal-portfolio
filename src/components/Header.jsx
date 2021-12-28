@@ -54,7 +54,7 @@ const Image = styledComponents.img`
       }
     }
 
-    @media (min-width: 1024px ){
+    @media (min-width: 800px ){
       &.backImage {
         width: 35em;
       };
@@ -96,7 +96,7 @@ const TextContainer = styledComponents.div`
       };
     }
 
-    @media (min-width: 1024px ){
+    @media (min-width: 800px ){
       & {
         top: 15em;
       };
