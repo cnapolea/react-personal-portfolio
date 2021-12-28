@@ -23,6 +23,7 @@ const Image = styledComponents.img`
     &.mainImage {
       width:350px;
     }
+    
     @media (min-width: 360px ){
       &.backImage {
         width: 400px;
@@ -30,6 +31,16 @@ const Image = styledComponents.img`
 
       &.mainImage {
         width:450px;
+      }
+    }
+
+    @media (min-width: 740px ){
+      &.backImage {
+        width: 40em;
+      };
+
+      &.mainImage {
+        width:45em;
       }
     }
     
@@ -55,10 +66,20 @@ const TextContainer = styledComponents.div`
         top: 13em;
       };
     }
+
+    @media (min-width: 740px ){
+      & {
+        top: 18em;
+      };
+    }
 `;
 const MainHeaderText = styledComponents.h1`
     margin:0 10px;
     font-size: 30px;
+
+    @media (min-width: 740px ){
+      font-size: 3.5em;
+  }
 `;
 const SecondaryHeaderText = styledComponents.p`
     margin: 2em 10px;
@@ -66,6 +87,10 @@ const SecondaryHeaderText = styledComponents.p`
     font-weight: 500;
     letter-spacing: 2px;
     padding: 0px ;
+    
+    @media (min-width: 740px ){
+      font-size: 1.7em;
+  }
 `;
 
 function Header() {

@@ -1,8 +1,6 @@
-import {React, useState} from 'react'
+import { React, useState } from 'react';
 import styledComponents from 'styled-components';
 import Collapse from '@mui/material/Collapse';
-
-
 
 const Slide = styledComponents.div`
     position: relative;
@@ -23,11 +21,20 @@ const ProjectLink = styledComponents.a`
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     padding: 10px 0 10px 10px;
+
+    @media (min-width: 740px) {
+        font-size: 1.5em;
+    }
 `;
 
 const ProjectImg = styledComponents.img`
     width:100%;
     height: 15em;
+    border-bottom-right-radius: ${(props) =>
+      props.isSeeMoreClicked ? '0' : '15px'};
+    border-bottom-left-radius: ${(props) =>
+      props.isSeeMoreClicked ? '0' : '15px'};
+
 `;
 
 const SeeMore = styledComponents.span`
@@ -39,6 +46,10 @@ const SeeMore = styledComponents.span`
     color: white;
     padding: 5px 10px;
     border-radius: 16px;
+
+    @media (min-width: 740px) {
+        font-size: 1.5em;
+    }
 `;
 
 const DescriptionContainer = styledComponents.div``;
@@ -52,34 +63,43 @@ const Description = styledComponents.p`
     font-weight: 400;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
+
+    @media (min-width: 740px) {
+        font-size: 1.5em;
+    }
 `;
 
+function ProjectCarousel({ key, link, name, img, description }) {
+  const [seeMoreClicked, setSeeMoreClicked] = useState(false);
 
-function ProjectCarousel({key, link, name, img, description}) {
-    
-    const [seeMoreClicked, setSeeMoreClicked] = useState(false);
-
-    return (
-        
-            <Slide key={key}>
-                <ProjectLink href={link} target="_blank">{name}</ProjectLink>
-                <Banner>
-                    {/* <Curtain></Curtain> */}
-                    <SeeMore onClick={()=>{setSeeMoreClicked((prev)=> !prev)}}>{seeMoreClicked?'See Less':'See More'}</SeeMore>
-                    <ProjectImg src={img} alt={name}/>
-                </Banner>
-                <Collapse in={seeMoreClicked}>
-                    <DescriptionContainer>
-                        <Description>
-                            {description} <br/><br/>
-                            <a href={link} target="_blank">Visit Site</a>
-                        </Description>
-                    </DescriptionContainer>
-                </Collapse>
-                
-            </Slide>
-        
-    )
+  return (
+    <Slide key={key}>
+      <ProjectLink href={link} target="_blank">
+        {name}
+      </ProjectLink>
+      <Banner>
+        <SeeMore
+          onClick={() => {
+            setSeeMoreClicked((prev) => !prev);
+          }}
+        >
+          {seeMoreClicked ? 'See Less' : 'See More'}
+        </SeeMore>
+        <ProjectImg src={img} alt={name} isSeeMoreClicked={seeMoreClicked} />
+      </Banner>
+      <Collapse in={seeMoreClicked}>
+        <DescriptionContainer>
+          <Description>
+            {description} <br />
+            <br />
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              Visit Site
+            </a>
+          </Description>
+        </DescriptionContainer>
+      </Collapse>
+    </Slide>
+  );
 }
 
-export default ProjectCarousel
+export default ProjectCarousel;

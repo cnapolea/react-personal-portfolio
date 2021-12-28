@@ -4,7 +4,16 @@ import styledComponents from 'styled-components';
 import ResumeandCertificateCards from './ResumeandCertificateCards';
 import { resumeAndCertificates } from '../utils/resumeAndCertificates';
 
-const Container = styledComponents.div``;
+const Container = styledComponents.div`
+  @media (min-width: 740px) {
+   p {
+     font-size: 1.3em;
+   }
+    a {
+     font-size: 1em !important;
+   }
+  }
+`;
 const Subtitle = styledComponents.h2`
     margin: 4em 0 2em;
 `;

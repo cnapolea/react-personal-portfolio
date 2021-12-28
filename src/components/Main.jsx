@@ -10,6 +10,18 @@ const Container = styledComponents.div`
     z-index: 1;
     margin: 1.5em 10px;
 
+    `;
+
+const CardsContainer = styledComponents.div`
+      
+  @media (min-width: 740px ){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+  }
+    
 `;
 
 const Left = styledComponents.div`
@@ -22,6 +34,10 @@ const Down = styledComponents.div`
 `;
 const Subtitle = styledComponents.h2`
   margin: 2em 0;
+  
+  @media (min-width: 740px){
+    margin-bottom: 0.5em;
+  }
 `;
 
 function Main() {
@@ -29,9 +45,11 @@ function Main() {
     <Container>
       <Left>
         <Subtitle>Technologies</Subtitle>
-        {technologies.map((tech, i) => (
-          <TechCard tech={tech} i={i} />
-        ))}
+        <CardsContainer>
+          {technologies.map((tech, i) => (
+            <TechCard tech={tech} i={i} />
+          ))}
+        </CardsContainer>
       </Left>
       <Right>
         <Top>

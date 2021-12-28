@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styledComponents from 'styled-components';
 
 const Container = styledComponents.nav`
@@ -12,15 +12,16 @@ const Title = styledComponents.h2`
     margin: 0;
     padding: 5px 0;
 
+    @media (min-width: 740px ){
+        font-size: 2.1em;
+    }
+
 `;
 
 export default function Navbar() {
-    return (
-        <Container>
-            <Title>
-                NerdRoots.
-            </Title>
-        </Container>
-    )
+  return (
+    <Container>
+      <Title>NerdRoots.</Title>
+    </Container>
+  );
 }
-

@@ -5,12 +5,14 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/system';
 
 const Container = styled(Paper)(() => ({
-    
-    padding: '20px 0 20px 10px',
-    display: 'flex',
-    margin: '30px 0',
-    'align-items': 'center',
-  }));
+  padding: '20px 0 20px 10px',
+  display: 'flex',
+  margin: '30px 0',
+  'align-items': 'center',
+  '@media (min-width:740px)': {
+    width: '45%'
+  }
+}));
 
 // const Container = styledComponents.div`
 // `;
@@ -22,6 +24,7 @@ const TechLogo = styledComponents.img`
 const TechInformation = styledComponents.div``;
 const TechName = styledComponents.h3`
     margin: 0 0 10px;
+
 `;
 const LibrariesAndFrameWorks = styledComponents.ul`
     display: flex;
@@ -42,39 +45,48 @@ const SubTech = styledComponents.li`
 `;
 const SeeMore = styledComponents.a`
     cursor: pointer;
+    @media (min-width: 740px) {
+        font-size: 1.2em;
+    }
 `;
 
 const AdditionalInformation = styledComponents.div``;
-const Thoughts = styledComponents.p``;
+const Thoughts = styledComponents.p`
+  @media (min-width: 740px) {
+    font-size: 18px;
+  }
+`;
 const Projects = styledComponents.ul``;
 const Project = styledComponents.li``;
 
-function TechCard({tech, i}) {
-    const [seeMoreClicked, setSeeMoreClicked] = useState(false);
+function TechCard({ tech, i }) {
+  const [seeMoreClicked, setSeeMoreClicked] = useState(false);
 
-    return ( 
-            <Container key={i}>
-                <TechLogo src={tech.logoSrc}/>
-                <TechInformation>
-                    <TechName>{tech.name}</TechName>
-                    <Collapse in={seeMoreClicked}>
-                    <AdditionalInformation>
-                        {tech.frameworks && <LibrariesAndFrameWorks>
-                            {tech.frameworks.map((subTech, i) => {
-                                return (<SubTech key={i}>{subTech}</SubTech>)
-                            })}
-                        </LibrariesAndFrameWorks>}
-                        <Thoughts>{tech.personalThoughts}</Thoughts>
-                        <Projects></Projects>
-                    </AdditionalInformation>
-                    </Collapse>
-                    
-                    <SeeMore onClick={() => setSeeMoreClicked((prev) => !prev)}>{seeMoreClicked?'See Less':'See More'}</SeeMore>
-                </TechInformation>
-            </Container>
-    )
-    
-    
+  return (
+    <Container key={i}>
+      <TechLogo src={tech.logoSrc} />
+      <TechInformation>
+        <TechName>{tech.name}</TechName>
+        <Collapse in={seeMoreClicked}>
+          <AdditionalInformation>
+            {tech.frameworks && (
+              <LibrariesAndFrameWorks>
+                {tech.frameworks.map((subTech, i) => {
+                  return <SubTech key={i}>{subTech}</SubTech>;
+                })}
+              </LibrariesAndFrameWorks>
+            )}
+            <Thoughts>{tech.personalThoughts}</Thoughts>
+            <Projects></Projects>
+          </AdditionalInformation>
+        </Collapse>
+
+        <SeeMore onClick={() => setSeeMoreClicked((prev) => !prev)}>
+          {seeMoreClicked ? 'See Less' : 'See More'}
+        </SeeMore>
+      </TechInformation>
+    </Container>
+  );
 }
 
-export default TechCard
+export default TechCard;

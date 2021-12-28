@@ -13,10 +13,16 @@ const Container = styledComponents.div`
     
     .slick-dots {
       bottom: -40px;
+      @media (min-width: 740px){
+    
+        font-size: 15px;
+      }
+
     }
 `;
 const Subtitle = styledComponents.h2`
   margin: 2em 0;
+  
 `;
 
 function Projects() {
