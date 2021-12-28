@@ -88,13 +88,6 @@ const TextContainer = styledComponents.div`
       };
     }
 
-    
-
-    @media (min-width: 740px ){
-      & {
-        top: 18em;
-      };
-    }
 
     @media (min-width: 800px ){
       & {
