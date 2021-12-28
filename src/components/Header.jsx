@@ -34,6 +34,16 @@ const Image = styledComponents.img`
       }
     }
 
+    @media (min-width: 568px and min-height: 320px ){
+      &.backImage {
+        width: 400px;
+      };
+
+      &.mainImage {
+        width:450px;
+      }
+    }
+
     @media (min-width: 740px ){
       &.backImage {
         width: 40em;
@@ -41,6 +51,16 @@ const Image = styledComponents.img`
 
       &.mainImage {
         width:45em;
+      }
+    }
+
+    @media (min-width: 1024px ){
+      &.backImage {
+        width: 35em;
+      };
+
+      &.mainImage {
+        width:40em;
       }
     }
     
@@ -56,6 +76,7 @@ const TextContainer = styledComponents.div`
     position: absolute;
     top: 5em;
     
+
     @media (min-width: 360px ){
       & {
         top: 10em;
@@ -67,9 +88,17 @@ const TextContainer = styledComponents.div`
       };
     }
 
+    
+
     @media (min-width: 740px ){
       & {
         top: 18em;
+      };
+    }
+
+    @media (min-width: 1024px ){
+      & {
+        top: 15em;
       };
     }
 `;

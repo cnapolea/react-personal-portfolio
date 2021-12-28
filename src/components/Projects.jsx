@@ -30,11 +30,12 @@ function Projects() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: window.innerWidth > 700 ? 3 : 1,
     slidesToScroll: 1,
-    arrows: false
+    arrows: window.innerWidth > 700
   };
 
+  console.log(window.innerWidth);
   return (
     <Container>
       <Subtitle>Projects</Subtitle>

@@ -9,8 +9,13 @@ const Container = styled(Paper)(() => ({
   display: 'flex',
   margin: '30px 0',
   'align-items': 'center',
+
   '@media (min-width:740px)': {
     width: '45%'
+  },
+
+  '@media (min-width:1024px)': {
+    margin: '30px 10px'
   }
 }));
 

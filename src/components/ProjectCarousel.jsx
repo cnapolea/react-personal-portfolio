@@ -5,6 +5,7 @@ import Collapse from '@mui/material/Collapse';
 const Slide = styledComponents.div`
     position: relative;
     padding-top: 10px;
+    margin-right: ${window.innerWidth > 600 ? '10px' : '0'};
 `;
 
 const Banner = styledComponents.div`
